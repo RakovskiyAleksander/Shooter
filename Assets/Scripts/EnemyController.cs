@@ -15,16 +15,28 @@ public class EnemyController : MonoBehaviour
         {
             int receiveTimeInterval = _receiveTimeInterval.Count;
             float summ = 0;
-            for (int i = 0; i < receiveTimeInterval;i++) 
+            for (int i = 0; i < receiveTimeInterval; i++)
             {
                 summ += _receiveTimeInterval[i];
             }
-            return summ/receiveTimeInterval; 
+            return summ / receiveTimeInterval;
         }
     }
-
-
     private float _lastReceiveTime = 0f;
+    private Player _player;
+
+    public void Init(Player player)
+    {
+        _player = player;
+        _character.SetSpeed(player.speed);
+        player.OnChange += OnChange;
+    }
+
+    public void Destroy()
+    {
+        _player.OnChange -= OnChange;
+        Destroy(gameObject);
+    }
 
     private void SaveReceivetime()
     {
@@ -62,6 +74,12 @@ public class EnemyController : MonoBehaviour
                 case "vZ":
                     velocity.z = (float)dataChange.Value;
                     break;
+                case "rX":
+                    _character.SetRotateX((float)dataChange.Value);
+                    break;
+                case "rY":
+                    _character.SetRotateY((float)dataChange.Value);
+                    break;
 
                 default:
 
@@ -69,6 +87,6 @@ public class EnemyController : MonoBehaviour
             }
         }
         _character.SetMovement(position, velocity, AverageInterval);
-        
+
     }
 }

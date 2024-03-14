@@ -60,10 +60,13 @@ public class PlayerChracter : Character
         _head.localEulerAngles = new Vector3(_currentRotateX, 0, 0);
     }
 
-    public void GetMoveInfo(out Vector3 position, out Vector3 velocity)
+    public void GetMoveInfo(out Vector3 position, out Vector3 velocity, out float rotateX, out float rotateY)
     {
         position = transform.position;
         velocity = _rigidbody.velocity;
+        
+        rotateX = _head.localEulerAngles.x;
+        rotateY = transform.eulerAngles.y;
     }
 
 

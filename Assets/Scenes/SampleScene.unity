@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _colyseusSettings: {fileID: 11400000, guid: 919a6b1d150e0e747b439f05146e7378, type: 2}
-  _player: {fileID: 1193646479871385206, guid: bce279ea84955a343b003201840c3ab7, type: 3}
+  _player: {fileID: 5016238550672422409, guid: bce279ea84955a343b003201840c3ab7, type: 3}
   _enemy: {fileID: 1559670892826255782, guid: 5ca6a29d02a80fa44a19f60eb1506512, type: 3}
 --- !u!4 &295873435
 Transform:
